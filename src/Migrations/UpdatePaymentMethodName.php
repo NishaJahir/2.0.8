@@ -78,13 +78,19 @@ class UpdatePaymentMethodName
      */
     private function createNovalnetPaymentMethodByPaymentKey($paymentKey, $name)
     {
-        $paymentMethodData = ['pluginKey'  => 'plenty_novalnet',
+        $payment_data = $this->paymentHelper->getPaymentMethodByKey($paymentKey);
+     
+        if ($payment_data == 'no_paymentmethod_found')
+        {
+          $paymentMethodData = ['pluginKey'  => 'plenty_novalnet',
                               'paymentKey' => $paymentKey,
                               'name'       => $name];
-        if ($this->paymentHelper->getPaymentMethodByKey($paymentKey) == 'no_paymentmethod_found')
-        {
             $this->paymentMethodRepository->createPaymentMethod($paymentMethodData);
         } else {
+          $paymentMethodData = ['pluginKey'  => 'plenty_novalnet',
+                              'paymentKey' => $paymentKey,
+                              'name'       => $name,
+                               'id'        => $payment_data];
             $this->paymentMethodRepository->updateName($paymentMethodData);
         }
        
