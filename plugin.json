@@ -24,14 +24,6 @@
   "require": ["IO"],
   "serviceProvider": "Novalnet\\Providers\\NovalnetServiceProvider",
   "runOnBuild": [
-    "Novalnet\\Migrations\\CreatePaymentMethod",
-    "Novalnet\\Migrations\\CreatePaymentMethod_2_0_1",
-    "Novalnet\\Migrations\\CreatePaymentMethod_2_0_2",
-    "Novalnet\\Migrations\\CreatePaymentMethod_2_0_3",
-    "Novalnet\\Migrations\\CreatePaymentMethod_2_0_4",
-    "Novalnet\\Migrations\\CreatePaymentMethod_2_0_5",
-    "Novalnet\\Migrations\\CreatePaymentMethod_2_0_6",
-    "Novalnet\\Migrations\\CreatePaymentMethod_2_0_7",
     "Novalnet\\Migrations\\UpdatePaymentMethodName",
     "Novalnet\\Migrations\\UpdateTransactionTable"
   ],
